@@ -9,11 +9,11 @@ describe('Our first test', () => {
 });
 
 describe('index.html', () => {
-  it('should say hello', (done) => { //Precisa criar um callback done aqui para tornar a chamada asincrona
+  it('should have h1 that say Users', (done) => { //Precisa criar um callback done aqui para tornar a chamada asincrona
     const index = fs.readFileSync('./src/index.html', 'utf-8');
     jsdom.env(index, function(err, window) {
       const h1 = window.document.querySelector('h1');
-      expect(h1.innerHTML).to.equal("Hello World");
+      expect(h1.innerHTML).to.equal("Users");
       done();
       window.close;
     })
